@@ -1,0 +1,36 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:latest
+    container_name: logpuls-mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - logpuls-net
+
+  backend:
+    build: ./backend
+    container_name: logpuls-backend
+    depends_on:
+      - mongo
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/logpuls
+      - SECRET_KEY=supersecretkey
+      - ADMIN_USERNAME=admin
+      - ADMIN_PASSWORD=$2b$12$9d4e1e23b7a0a5d8f27e7c.f5e6f8e3c1a1c6f1f8e6a1e6a1e6a1e6a1e6a1e
+    networks:
+      - logpuls-net
+    volumes:
+      - ./backend:/app
+
+volumes:
+  mongo_data:
+
+networks:
+  logpuls-net:
+    driver: bridge

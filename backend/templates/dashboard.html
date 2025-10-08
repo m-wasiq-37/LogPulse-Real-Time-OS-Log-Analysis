@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LogPuls Dashboard</title>
+    <link href="{{ url_for('static', filename='css/darkpulse.css') }}" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@1.9.2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-brand">LogPuls</div>
+        <div class="navbar-right">
+            <span>{{ username }}</span>
+            <a href="{{ url_for('auth.logout') }}" class="btn-danger">Logout</a>
+        </div>
+    </nav>
+    <div class="dashboard">
+        <div class="dashboard-main">
+            <section class="live-logs">
+                <h2>Live Logs Feed</h2>
+                <div id="logs-feed" class="logs-feed"></div>
+            </section>
+            <section class="analytics">
+                <h2>Analytics</h2>
+                <div class="charts">
+                    <canvas id="log-pie" width="300" height="180"></canvas>
+                    <canvas id="log-freq" width="480" height="180"></canvas>
+                    <div>
+                        <h3>Top 10 Frequent Events</h3>
+                        <ul id="top-events"></ul>
+                    </div>
+                </div>
+            </section>
+            <section class="filters">
+                <h2>Filters</h2>
+                <form id="filter-form">
+                    <select name="level">
+                        <option value="">All Levels</option>
+                        <option value="INFO">INFO</option>
+                        <option value="WARNING">WARNING</option>
+                        <option value="ERROR">ERROR</option>
+                    </select>
+                    <input type="text" name="source" placeholder="Source">
+                    <input type="date" name="start">
+                    <input type="date" name="end">
+                    <button type="submit" class="btn-primary">Apply</button>
+                </form>
+            </section>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            initDashboard();
+        });
+    </script>
+</body>
+</html>

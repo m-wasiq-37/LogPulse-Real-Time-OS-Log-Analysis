@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LogPuls Login</title>
+    <link href="{{ url_for('static', filename='css/darkpulse.css') }}" rel="stylesheet">
+</head>
+<body>
+<div class="login-container">
+    <form method="POST">
+        <h2>LogPuls Login</h2>
+        {% if signup %}
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" class="btn-primary">Sign Up</button>
+            <a href="{{ url_for('auth.login') }}">Already have account?</a>
+        {% else %}
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" class="btn-primary">Login</button>
+            <a href="{{ url_for('auth.signup') }}">Sign Up</a>
+        {% endif %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul>
+            {% for category, message in messages %}
+              <li class="flash-{{ category }}">{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+    </form>
+</div>
+</body>
+</html>

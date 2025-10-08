@@ -1,0 +1,140 @@
+body {
+    background: #0d1117;
+    color: #f0f6fc;
+    font-family: 'Inter', 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+
+.centered {
+    text-align: center;
+}
+
+.login-container {
+    background: #161b22;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 300px;
+    margin: 4rem auto;
+    box-shadow: 0 0 8px #58a6ff33;
+}
+
+input[type="text"], input[type="password"], input[type="date"], select {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.7rem;
+    border-radius: 4px;
+    border: none;
+    background: #21262d;
+    color: #f0f6fc;
+}
+
+.btn-primary {
+    background: #58a6ff;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-danger {
+    background: #f85149;
+    color: #fff;
+    border: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.flash-danger {
+    color: #f85149;
+}
+.flash-success {
+    color: #238636;
+}
+
+.navbar {
+    background: #161b22;
+    color: #f0f6fc;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 12px #00000022;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #58a6ff;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.dashboard {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.dashboard-main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+}
+
+.live-logs {
+    background: #161b22;
+    padding: 1rem;
+    border-radius: 8px;
+    height: 400px;
+    overflow: auto;
+}
+
+.logs-feed {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.95rem;
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.analytics {
+    background: #161b22;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.charts {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.filters {
+    margin-top: 2rem;
+    background: #161b22;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+h1, h2, h3 {
+    color: #58a6ff;
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
