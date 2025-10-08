@@ -1,1 +1,1 @@
-# LogPulse-Real-Time-OS-Log-Analysis
+# LogPuls: Real-Time OS Log Analysis
